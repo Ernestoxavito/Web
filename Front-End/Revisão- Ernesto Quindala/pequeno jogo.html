@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Logica</title>
+</head>
+<body>
+<script type="text/javascript">
+	
+	function pulalinha() {
+		document.write("<br>");
+		document.write("<br>");
+	}
+	function mostra(frase) {
+		document.write(frase);
+		pulalinha();
+	}
+
+	var numeropensado = Math.round(Math.random() * 10);
+	var chute = parseInt(prompt("Digite seu numero"));
+	if (chute == numeropensado) {
+		mostra("voce acertou");
+	} else {
+		mostra("voce errou, o seu numero pensado foi " + numeropensado);
+	}
+
+
+</script>
+</body>
+</html>

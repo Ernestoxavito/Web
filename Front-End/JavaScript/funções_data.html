@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>funções_Data</title>
+
+    <script>
+        /**
+        var data = new Date()
+
+        document.write(data.getDate() + "/" + (data.getMonth()+ 1)+ "/"+ data.getFullYear())
+        **/
+       //Adicionar e remover dias
+       var data = new Date()
+       document.write(data.toString());
+       data.setDate(data.getDate() + 10 );
+       document.write("<hr>")
+       
+       document.write("<br>")
+
+       //Adicionar e remover meses
+       document.write(data.toString());
+       data.setMonth(data.getMonth() + 5 );
+       document.write("<hr><br>")
+       
+       //Adicionar e remover ano
+       document.write(data.toString());
+       data.setFullYear(data.getFullYear() + 3 );
+       document.write("<hr><br>")
+       document.write(data.toString());
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções</title>
+
+    <script>
+        
+        /*
+        var largura = prompt("Digite a largura ")
+        var comprimento = prompt("Digite o comprimento ")
+
+        var area = calcularArea(largura, comprimento)
+        function calcularArea(largura, comprimento) {
+            var area = largura * comprimento
+            return area
+        }
+
+        document.write(area)
+        **/
+       //Funções anônimas
+       /*
+       var saudar = function (nome) {
+        document.write("Bom dia, " + nome + " ?")
+       }
+       saudar("Ernesto")**/
+
+       //Funções_callback
+       /**
+       function exibirArtigo(id, callbackSucesso, callbackErro) {
+         //lógica: recuperar o id via requisação http
+         if (true) {
+            callbackSucesso("Callback em JS", "Callback com erro")
+         } else{
+            callbackErro("Erro ao recuperar os dados")
+         }
+       }
+
+       var callbackSucesso = function (titulo, descricao) {
+        document.write("<h1>" + titulo + "</h1>")
+        document.write("<hr />")
+        document.write(descricao)
+       }
+
+       var callbackErro = function (erro) {
+        document.write("<b>Erro:</b>" + erro)
+       }
+
+       exibirArtigo(1, callbackSucesso, callbackErro)
+       **/
+      //funções que manipulam uma String
+       var nome = "Ernesto Xavito"
+
+       //propriedade length
+       document.write(nome.substr(9, 12))
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

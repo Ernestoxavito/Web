@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Logica JS</title>
+</head>
+<body>
+<script type="text/javascript">
+
+	function pulalinha() {
+		document.write("<br><br>");
+	}
+
+	function mostra(frase) {
+		document.write(frase);
+	}
+	
+	var ano= 2016;
+
+	mostra("Ernesto tem " + (ano-1990) + " anos");
+	pulalinha();
+	mostra("Beto tem " + (ano-1992) + " anos");
+	pulalinha();
+
+	ano = 2020;
+	mostra("Kendra tem " + (ano-1999) + "anos");
+	pulalinha();
+
+	var idadeErnesto = 26;
+	var idadeBeto= 24;
+	var idadeKendra= 21;
+
+	var media = (idadeErnesto + idadeBeto + idadeKendra)/3
+
+	mostra("A media das idades e " + Math.round(media))
+
+	var nome  = "Ernesto";
+	pulalinha();
+	mostra("A idade do " + nome + "e" + idadeErnesto)
+
+
+
+</script>
+</body>
+</html>

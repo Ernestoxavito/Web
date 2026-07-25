@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Time do Sangue</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="asd.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Barra Lateral -->
+        <aside class="sidebar">
+            <h2>Gestão de <span>Sangue</span></h2>
+            <nav>
+                <ul>
+                    <!-- Categorias -->
+                    <li class="active"><strong>CADASTROS</strong></li>
+                    <li class="menu-item" data-submenu="subAgendamentos">Agendamentos</li>
+                    <ul id="subAgendamentos" class="sub-menu">
+                        <li class="sub-item" data-tabela="tabelaConfirmados">Confirmados</li>
+                        <li class="sub-item" data-tabela="tabelaCancelados">Cancelados</li>
+                        <li class="sub-item" data-tabela="tabelaPendentes">Pendentes</li>
+                    </ul>
+                    <li class="menu-item" data-submenu="subDoador">Doador</li>
+                    <ul id="subDoador" class="sub-menu">
+                        <li class="sub-item" data-tabela="tabelaAtendidos">Atendidos</li>
+                        <li class="sub-item" data-tabela="tabelaFaltaram">Faltaram</li>
+                        <li class="sub-item" data-tabela="tabelaReprovados">Reprovados</li>
+                    </ul>
+
+                    <!-- Outras Seções -->
+                    <li><strong>NOTIFICAÇÕES</strong></li>
+                    <li>Campanha</li>
+                    <li><strong>RELATÓRIOS</strong></li>
+                    <li>Dashboard</li>
+                    <li>Demanda</li>
+                    <li>Últimas Doações</li>
+                    <li>Listagem</li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="dashboard">
+            <header>
+                <h1>Dashboard</h1>
+                <div class="profile">
+                    <!-- Ícones de Notificações e Mensagens -->
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </div>
+                    <div class="messages">
+                        <i class="fas fa-envelope"></i>
+                        <span class="message-count">5</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40" alt="Usuário">
+                        <span>Usuário</span>
+                    </div>
+                </div>
+            </header>
+
+          
+           
+            <!-- Gestão de Estoque de Sangue -->
+            <section class="stock-management">
+                <h3>Gestão de Estoque de Sangue</h3>
+                <div class="stock-container">
+                    <div class="stock-item">
+                        <h4>Quantidade de Bolsas Disponíveis</h4>
+                        <canvas id="stockChart"></canvas>
+                    </div>
+                    <div class="alerts">
+                        <h4>Alertas de Estoque</h4>
+                        <ul>
+                            <li class="alert alert-low">A+ - Estoque baixo!</li>
+                            <li class="alert alert-expiring">O+ - Bolsas prestes a vencer!</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Solicitação Interna de Bolsas -->
+            <section class="internal-requests">
+                <h3>Solicitação Interna de Bolsas</h3>
+                <form id="blood-request-form">
+                    <label for="hospital">Hospital/Setor:</label>
+                    <input type="text" id="hospital" name="hospital" required>
+                    
+                    <label for="blood-type">Tipo de Sangue:</label>
+                    <select id="blood-type" name="blood-type">
+                        <option value="A+">A+</option>
+                        <option value="O+">O+</option>
+                        <option value="B+">B+</option>
+                        <option value="AB+">AB+</option>
+                    </select>
+                    
+                    <label for="quantity">Quantidade:</label>
+                    <input type="number" id="quantity" name="quantity" required min="1">
+                    
+                    <button type="submit">Solicitar</button>
+                </form>
+            </section>
+
+            <!-- Seção de Gráficos -->
+            <section class="charts">
+                <div class="chart-container">
+                    <h3>Doações</h3>
+                    <canvas id="doacoesChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Tipos Sanguíneos</h3>
+                    <canvas id="sangueChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Agendamentos no Período</h3>
+                    <canvas id="agendamentosChart"></canvas>
+                </div>
+            </section>
+
+            </section>
+
+            
+<!-- Tabelas de Agendamentos -->
+<section class="tables">
+<table id="tabelaConfirmados" class="tabela">
+    <thead>
+        <tr><th>Nome</th><th>Data</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>João</td><td>25/03/2025</td></tr>
+    </tbody>
+</table>
+
+<table id="tabelaCancelados" class="tabela">
+    <thead>
+        <tr><th>Nome</th><th>Motivo</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Maria</td><td>Desistência</td></tr>
+    </tbody>
+</table>
+
+<table id="tabelaPendentes" class="tabela">
+    <thead>
+        <tr><th>Nome</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Pedro</td><td>Aguardando Confirmação</td></tr>
+    </tbody>
+</table>
+
+<table id="tabelaAtendidos" class="tabela">
+    <thead>
+        <tr><th>Nome</th><th>Data da Doação</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Lucas</td><td>20/03/2025</td></tr>
+    </tbody>
+</table>
+
+<table id="tabelaFaltaram" class="tabela">
+    <thead>
+        <tr><th>Nome</th><th>Motivo</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Fernanda</td><td>Não compareceu</td></tr>
+    </tbody>
+</table>
+
+<table id="tabelaReprovados" class="tabela">
+    <thead>
+        <tr><th>Nome</th><th>Motivo</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Carlos</td><td>Baixa Hemoglobina</td></tr>
+    </tbody>
+</table> 
+
+        </main>
+    </div>
+
+    <script>
+        // Função para exibir/ocultar submenus ao clicar nas opções
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function() {
+                let submenu = document.getElementById(this.getAttribute('data-submenu'));
+                document.querySelectorAll('.sub-menu').forEach(sub => {
+                    sub.style.display = 'none'; // Esconde todos os submenus
+                });
+                submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+                document.querySelectorAll('.tabela').forEach(table => {
+                    table.style.display = 'none'; // Esconde todas as tabelas
+                });
+            });
+        });
+
+        // Função para exibir a tabela correspondente ao clicar nas subcategorias
+        document.querySelectorAll('.sub-item').forEach(subItem => {
+            subItem.addEventListener('click', function() {
+                document.querySelectorAll('.tabela').forEach(table => {
+                    table.style.display = 'none'; // Esconde todas as tabelas
+                });
+                let tabelaId = this.getAttribute('data-tabela');
+                document.getElementById(tabelaId).style.display = 'table'; // Mostra a tabela selecionada
+            });
+        });
+
+        // Gráfico de Estoque de Sangue
+        const ctxStock = document.getElementById('stockChart').getContext('2d');
+        new Chart(ctxStock, {
+            type: 'bar',
+            data: {
+                labels: ['A+', 'O+', 'B+', 'AB+', 'A-', 'O-', 'B-', 'AB-'],
+                datasets: [{
+                    label: 'Bolsas Disponíveis',
+                    data: [150, 200, 100, 50, 30, 40, 20, 10],
+                    backgroundColor: ['#FF5722', '#E91E63', '#9C27B0', '#3F51B5', '#009688', '#4CAF50', '#FFC107', '#795548']
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Solicitação Interna de Bolsas (Formulário)
+        document.getElementById('blood-request-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const hospital = document.getElementById('hospital').value;
+            const bloodType = document.getElementById('blood-type').value;
+            const quantity = document.getElementById('quantity').value;
+            alert(`Pedido realizado para ${hospital} - Tipo de Sangue: ${bloodType}, Quantidade: ${quantity}`);
+        });
+
+        // Gráficos (Doações, Tipos Sanguíneos, Agendamentos)
+        const ctx1 = document.getElementById('doacoesChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'doughnut',
+            data: {
+                labels: ['Novos', 'Recorrentes'],
+                datasets: [{
+                    data: [70, 30],
+                    backgroundColor: ['#1976D2', '#D32F2F']
+                }]
+            },
+            options: {
+                animation: {
+                    animateScale: true,
+                    animateRotate: true
+                }
+            }
+        });
+
+        const ctx2 = document.getElementById('sangueChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: ['A-', 'A+', 'B-', 'B+', 'AB-', 'AB+', 'O-', 'O+'],
+                datasets: [{
+                    data: [5, 15, 10, 10, 5, 10, 5, 40],
+                    backgroundColor: ['#FF5722', '#E91E63', '#9C27B0', '#3F51B5', '#009688', '#4CAF50', '#FFC107', '#795548']
+                }]
+            },
+            options: {
+                animation: {
+                    animateScale: true,
+                    animateRotate: true
+                }
+            }
+        });
+
+        const ctx3 = document.getElementById('agendamentosChart').getContext('2d');
+        new Chart(ctx3, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+                datasets: [{
+                    label: 'Agendamentos',
+                    data: [30, 50, 40, 60, 80, 100],
+                    borderColor: '#0288D1',
+                    fill: false
+                }]
+            },
+            options: {
+                animation: {
+                    duration: 1500
+                }
+            }
+        });
+    </script>
+</body>
+</html>

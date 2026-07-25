@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.fa-solid{
+    color: rgb(255, 0, 0);
+    width: 30 ;
+}
+.usernav{
+    align-items: center;
+    display: flex;
+    padding-top: 40px;
+    padding-left: 40%;
+    list-style: none;
+}
+.fa-regular{
+    font-size: 30px;
+    text-decoration: none;
+}
+li{
+    margin-right: 15px;
+}
+
+.userperfil{
+    border-radius: 35px;
+}
+
+#perfil{
+    border-radius: 50px;
+    width: 50px;
+}
+#nomeadm{
+    padding-bottom: 5px ;
+    text-decoration: none;
+}
+.per{
+    align-items: center;
+    display: flex;
+}
+#part{
+    padding-right: 15px;
+}

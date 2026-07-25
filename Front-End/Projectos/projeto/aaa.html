@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Doação de Sangue</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff7f7;
+      display: flex;
+      min-height: 100vh;
+    }
+    .sidebar {
+      width: 240px;
+      background-color: #c62828;
+      height: 100vh;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      margin: 15px 0;
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 8px;
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+    .sidebar a:hover, .sidebar a.active {
+      background-color: #b71c1c;
+    }
+    .sidebar i { margin-right: 10px; }
+    .main {
+      flex: 1;
+      padding: 30px;
+      background: #fff7f7;
+      min-height: 100vh;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    .header h1 { font-size: 24px; }
+    .topbar {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .profile {
+      width: 35px;
+      height: 35px;
+      background: #c62828;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .cards {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      flex: 1;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: box-shadow 0.2s;
+    }
+    .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.13);}
+    .card i {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #c62828;
+    }
+    .card h3 {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 8px;
+    }
+    .card span {
+      font-size: 26px;
+      font-weight: bold;
+      color: #c62828;
+    }
+    .shortcuts {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .shortcut {
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .shortcut:hover {
+      background: #ffeaea;
+      border-color: #c62828;
+    }
+    /* Estatística de coletas */
+    .coletas-section {
+      margin-top: 40px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px #eee;
+      padding: 32px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .coletas-section h2 {
+      color: #c62828;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    #grafico-coletas {
+      margin: 0 auto;
+      display: block;
+    }
+    /* Oculta todas as seções por padrão */
+    .section { display: none; }
+    .section.active { display: block; }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2 style="color: white; text-align:center; margin-bottom: 20px;"><i class="fa-solid fa-droplet"></i></h2>
+    <a href="#" data-section="inicio" class="active"><i class="fa-solid fa-house"></i> Início</a>
+    <a href="#" data-section="triagem"><i class="fa-solid fa-notes-medical"></i> Triagem</a>
+    <a href="#" data-section="coletas"><i class="fa-solid fa-syringe"></i> Coletas de Sangue</a>
+    <a href="#" data-section="agendamentos"><i class="fa-solid fa-calendar-check"></i> Agendamentos</a>
+    <a href="#" data-section="atendimento"><i class="fa-solid fa-user-clock"></i> Doador em Atendimento</a>
+    <a href="#" data-section="relatorios"><i class="fa-solid fa-file-medical"></i> Relatórios Clínicos</a>
+    <a href="#" data-section="configuracoes"><i class="fa-solid fa-gear"></i> Configurações</a>
+  </div>
+
+  <div class="main">
+    <div id="inicio" class="section active">
+      <div class="header">
+        <h1>Dashboard</h1>
+        <div class="topbar">
+          <i class="fa-regular fa-bell"></i>
+          <div class="profile"><?php echo strtoupper(substr($admin_nome,0,1)); ?></div>
+          <span><?php echo htmlspecialchars($admin_nome); ?></span>
+          <a href="logout.php" style="margin-left:20px; color:#c62828; font-weight:bold;">Sair</a>
+        </div>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <i class="fa-solid fa-droplet"></i>
+          <h3>Total de Doadores do Dia</h3>
+          <span id="doadoresHoje">--</span>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-vial"></i>
+          <h3>Coletas Realizadas Hoje</h3>
+          <span id="coletasHoje">--</span>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-calendar-day"></i>
+          <h3>Agendamentos para Amanhã</h3>
+          <span id="agendamentosAmanha">--</span>
+        </div>
+      </div>
+      <h2 style="margin-bottom: 15px;">Atalhos Rápidos</h2>
+      <div class="shortcuts">
+        <div class="shortcut" onclick="window.location.href='triagem.php'"><i class="fa-solid fa-plus"></i> Iniciar nova triagem</div>
+        <div class="shortcut" onclick="window.location.href='buscar_doador.php'"><i class="fa-solid fa-file"></i> Ver ficha de doador</div>
+        <div class="shortcut" onclick="window.location.href='agendamentos.php'"><i class="fa-solid fa-clock"></i> Ver próximos agendamentos</div>
+        <div class="shortcut" onclick="window.location.href='relatorio_diario.php'"><i class="fa-solid fa-chart-line"></i> Gerar relatório clínico diário</div>
+      </div>
+    </div>
+
+    <div id="triagem" class="section">
+      <h2>Triagem</h2>
+      <!-- Conteúdo da triagem -->
+    </div>
+    <div id="coletas" class="section">
+      <div class="coletas-section">
+        <h2><i class="fa-solid fa-syringe"></i> Estatística de Coletas por Tipo Sanguíneo</h2>
+        <canvas id="grafico-coletas" width="600" height="300"></canvas>
+      </div>
+    </div>
+    <div id="agendamentos" class="section">
+      <h2>Agendamentos</h2>
+      <!-- Conteúdo dos agendamentos -->
+    </div>
+    <div id="atendimento" class="section">
+      <h2>Doador em Atendimento</h2>
+      <!-- Conteúdo do atendimento -->
+    </div>
+    <div id="relatorios" class="section">
+      <h2>Relatórios Clínicos</h2>
+      <!-- Conteúdo dos relatórios -->
+    </div>
+    <div id="configuracoes" class="section">
+      <h2>Configurações</h2>
+      <!-- Conteúdo das configurações -->
+    </div>
+  </div>
+
+<script>
+
+  function atualizarTabelaAgendamentos() {
+  fetch('buscar_agendamentos.php')
+    .then(res => res.json())
+    .then(agendamentos => {
+      let html = '';
+      agendamentos.forEach(a => {
+        html += `<tr>
+          <td>${a.nome_completo}</td>
+          <td>${a.data_agendamento}</td>
+          <td>${a.telefone}</td>
+          <td>${a.email}</td>
+          <td>${a.fator_RH}</td>
+        </tr>`;
+      });
+      document.querySelector('#agendamentos tbody').innerHTML = html;
+    });
+}
+setInterval(atualizarTabelaAgendamentos, 5000);
+document.addEventListener('DOMContentLoaded', atualizarTabelaAgendamentos);
+function atualizarCards() {
+  fetch('buscar_dashboard.php')
+    .then(res => res.json())
+    .then(dados => {
+      document.getElementById('doadoresHoje').textContent = dados.doadoresHoje ?? '--';
+      document.getElementById('coletasHoje').textContent = dados.coletasHoje ?? '--';
+      document.getElementById('agendamentosAmanha').textContent = dados.agendamentosAmanha ?? '--';
+    })
+    .catch(() => {
+      document.getElementById('doadoresHoje').textContent = '--';
+      document.getElementById('coletasHoje').textContent = '--';
+      document.getElementById('agendamentosAmanha').textContent = '--';
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  atualizarCards();
+  setInterval(atualizarCards, 10000); // Atualiza a cada 10s
+
+  // Sidebar navegação: oculta todas as seções e mostra a selecionada
+  const sidebarLinks = document.querySelectorAll('.sidebar a');
+  sidebarLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      // Remove active de todos
+      sidebarLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+      // Oculta todas as seções
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      // Mostra a seção selecionada
+      const sectionId = this.getAttribute('data-section');
+      if (sectionId) {
+        const sec = document.getElementById(sectionId);
+        if (sec) sec.classList.add('active');
+        // Se for coletas, rola até o gráfico
+        if (sectionId === 'coletas') {
+          setTimeout(() => {
+            document.getElementById('grafico-coletas').scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        }
+      }
+    });
+  });
+});
+
+let chartColetas = null;
+
+function atualizarGraficoColetas() {
+    fetch('chad.php?ajax=tipos_sangue')
+        .then(res => res.json())
+        .then(dados => {
+            if (chartColetas) {
+                chartColetas.data.labels = dados.tipos;
+                chartColetas.data.datasets[0].data = dados.totais;
+                chartColetas.update();
+            }
+        });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const tipos = <?php echo json_encode($tipos); ?>;
+    const totais = <?php echo json_encode($totais); ?>;
+    const ctx = document.getElementById('grafico-coletas').getContext('2d');
+    chartColetas = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: tipos,
+            datasets: [{
+                label: 'Total de Coletas',
+                data: totais,
+                backgroundColor: [
+                    '#FF5722', '#E91E63', '#9C27B0', '#3F51B5',
+                    '#009688', '#4CAF50', '#FFC107', '#795548'
+                ]
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+
+    // Atualiza o gráfico a cada 5 segundos (tempo real)
+    setInterval(atualizarGraficoColetas, 5000);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<?php
+session_start();
+
+// Conectar ao banco de dados
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "Gestao_Doacoes";
+
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Verificar conexão
+if ($conn->connect_error) {
+    die("Erro ao conectar ao banco de dados: " . $conn->connect_error);
+}
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: login.php"); // Redireciona para login se não estiver logado
+    exit();
+}
+
+$usuario_id = $_SESSION['usuario_id'];
+
+// Consulta os dados do usuário
+$sql = "SELECT nome_completo, email, telefone, endereco, bi, genero, data_nascimento, fator_hr, fator_rh, nivel_acesso 
+        FROM Cadastro WHERE id = ?";
+$stmt = $conn->prepare($sql);
+
+// Verifica se a preparação da consulta falhou
+if (!$stmt) {
+    die("Erro na preparação da consulta: " . $conn->error);
+}
+
+$stmt->bind_param("i", $usuario_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$usuario = $result->fetch_assoc();
+
+// Se não encontrar o usuário, redireciona para o login
+if (!$usuario) {
+    header("Location: login.php");
+    exit();
+}
+
+// Buscar dados do estoque
+$query = "SELECT tipo_sangue, quantidade FROM estoque";
+$result = $conn->query($query);
+
+$estoque_data = [];
+if ($result) {
+    while ($row = $result->fetch_assoc()) {
+        $estoque_data[] = $row;
+    }
+} else {
+    die("Erro ao buscar dados: " . $conn->error);
+}
+
+$conn->close();
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>Bem-vindo, <?php echo htmlspecialchars($usuario_nome); ?>!</h2>
+        <a href="logout.php" class="btn-sair">Sair</a>
+    </header>
+
+    <section class="conteudo">
+        <h3>Seus Dados:</h3>
+        <p><strong>Email:</strong> <?php echo htmlspecialchars($usuario['email']); ?></p>
+        <p><strong>Telefone:</strong> <?php echo htmlspecialchars($usuario['telefone']); ?></p>
+        <p><strong>Tipo Sanguíneo:</strong> <?php echo htmlspecialchars($usuario['tipo_sanguineo']); ?></p>
+
+        <h3>Opções:</h3>
+        <ul>
+            <li><a href="cadastrar_doacao.php">Cadastrar Doação</a></li>
+            <li><a href="minhas_doacoes.php">Minhas Doações</a></li>
+            <li><a href="editar_perfil.php">Editar Perfil</a></li>
+        </ul>
+    </section>
+</body>
+</html>
+
+
+
+<script>
+    $(function () {
+        $('#formCadastro').on('submit', function (e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: 'cadastrar.php',
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function (response) {
+                    $('#mensagem').html('<div>' + response + '</div>');
+                    $('#formCadastro')[0].reset();
+                }
+            });
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+session_start();
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+// Conexão com o banco de dados
+require 'conexao.php';
+
+// Pega o nome do usuário logado
+$usuario_id = $_SESSION['usuario_id'];
+$usuario_nome = $_SESSION['usuario_nome'];
+
+// Buscar dados do usuário
+$stmt = $conexao->prepare("SELECT email, telefone, tipo_sanguineo FROM Cadastro WHERE id = ?");
+$stmt->bind_param("i", $usuario_id);
+$stmt->execute();
+$resultado = $stmt->get_result();
+$usuario = $resultado->fetch_assoc();
+
+?>

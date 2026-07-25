@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+
+    <script>
+        var objectos = Array("Cadeira", "Impressora", "Garfo")
+
+        function adicionarObjectos() {
+            //recupera o valor inserido no campo id objecto
+            var objecto = document.getElementById("objecto").value
+            //Caso possua algum valor no input entra no if
+            if (objecto !="") {
+              //verifica se o valor já não foi inserido
+              //se sim, informa que valor já existe, se não insere novo valor
+              if (objectos.indexOf(objecto)!=-1) {
+                alert("Objecto já foi usado")
+              }else{
+                objectos.push(objeto)
+                console.log(objectos)
+
+                document.getElementById("objecto").value =" "
+              }  
+            }else{
+                alert("informe um objecto válido")
+            }
+            
+            function ordenarObjectos() {
+                objectos.sort()
+                console.log(objectos)
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <input type="text" id="objecto/">
+   <button onclick="adicionarObjectos()">Adicionar</button>
+   <button onclick="ordenarObjectos()">Ordenar</button> 
+</body>
+</html>

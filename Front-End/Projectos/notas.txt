@@ -1,0 +1,1 @@
+Location: cadastramento_paciente.php?nif=

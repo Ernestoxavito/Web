@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Códigos Bootstrap </title>
+    <!-- Bootstrap css -->
+    <link rel="Stylesheet" href="css/bootstrap.min.css">
+  </head>
+  <body style ="margin-bottom: 200px; padding: 16px;">
+
+    <!-- Elementos flutuantes -->
+    <div >
+      <div class="bg-success float-left">Float Left</div>
+      <div class="bg-warning float-right">Float Right</div>
+    </div>
+    <br>
+
+    <!-- Float responsivo -float-<tela>-<direção> tela:
+      sm, md, lg, xl
+    alinhamento: left, right-->
+    <div class="float-sm-right">tela &gt;= 576px * </div>
+    <div class="float-md-right">tela &gt;= 768px * </div>
+    <div class="float-lg-right">tela &gt;= 992px * </div>
+    <div class="float-xl-right">tela &gt;= 1200px * </div>
+
+    <!--Cabeçalho-->
+    <h1>Cabeçalho 1</h1>
+    <h2>Cabeçalho 2</h2>
+    <h3>Cabeçalho 3</h3>
+    <h4>Cabeçalho 4</h4>
+    <h5 class="h1">Cabeçalho 5</h5>
+    <br>
+
+    <h1 class="text-primary">Texto primary</h1>
+    <h1 class="text-secondary">Texto secondary</h1>
+    <h1 class="text-info">Texto info</h1>
+    <h1 class="text-warning">Texto warning</h1>
+    <h1 class="text-danger">Texto danger</h1>
+    <br>
+    <!--Background-->
+    <div class="bg-primary">Background primary</div>
+    <div class="bg-secondary">Background secondary</div>
+    <div class="bg-info">Background info</div>
+    <div class="bg-warning">Background warning</div>
+    <div class="bg-danger">Background danger</div>
+    <br>
+
+    <!-- display classes-->
+    <h1 class="display-1">Display 1</h1>
+    <h1 class="display-2">Display 2</h1>
+    <h1>Display 3</h1>
+    <h1>Display 4</h1>
+
+    <br>
+    <br>
+    <!--Parágrafo-->
+    <p class="display-6">
+      Numa ponta que avançava sobre o mar. 
+      posteriormente conhecida como Ponta do Calabouço, entre as praias de Piaçaba e Santa Luzia, no centro histórico.
+    </p>
+    <br>
+
+    <ul class="list-inline bg-warning sticky-top">
+      <li class="list-inline-item">Item 1</li>
+      <li class="list-inline-item">Item 2</li>
+      <li class="list-inline-item">Item 3</li>
+    </ul>
+
+    <h1 class="fixed-top text-danger">Daniel da Costa</h1>
+
+    <br>
+    <p class="lead">
+      Numa ponta que avançava sobre o mar. 
+      posteriormente conhecida como Ponta do Calabouço, entre as praias de Piaçaba e Santa Luzia, no centro histórico.
+    </p>
+    <br>
+    <br>
+    <p class="text-monospace">
+      Numa ponta que avançava sobre o mar. 
+      posteriormente conhecida como Ponta do Calabouço, entre as praias de Piaçaba e Santa Luzia, no centro histórico.
+    </p>
+    <p>
+      Numa ponta que avançava sobre o mar. 
+      posteriormente conhecida como Ponta do Calabouço, entre as praias de Piaçaba e Santa Luzia, no centro histórico.
+    </p>
+
+    <!--Classes de estilo-->
+    <p class="font-weight-bold">Texto Negrito</p>
+    <p class="font-weight-normal">Texto Normal</p>
+    <p class="font-italic">Texto itálico</p>
+    
+    <br>
+    <!--Transformação de textos-->
+    <p class="text-uppercase">Letras Maiúsculas</p>
+    <p class="text-lowercase">LETRAS MINÚSCULAS</p>
+    <p class="text-capitalize">primeira letra maiúscula</p>
+
+    <br>
+    <!--Alinhamentos-->
+    <p class="text-right">Direitas</p>
+    <p class="text-left">Esquerda</p>
+    <p class="text-center">tela &gt;= 1200px</p>
+    <br>
+    <!-- Bloco de citação-->
+    <blockquote class="blockquote text-right">
+      <p class="text-info">Boas aulas Engenheiro</p>
+    </blockquote>
+
+    <blockquote>
+      <p>
+        Numa ponta que avançava sobre o mar. 
+        posteriormente conhecida como Ponta do Calabouço.
+        entre as praias de Piaçaba e Santa Luzia.
+      </p>
+      <footer>Por
+        <cite>Professor Ernesto</cite>
+      </footer>
+    </blockquote>
+    <br>
+    <!-- Truncate-->
+    <p class="text-truncate">Numa ponta que avançava sobre o mar. 
+    posteriormente conhecida como Ponta do Calabouço, entre as praias de Piaçaba e Santa Luzia, no centro histórico.
+    </p>
+
+    <br>
+    <br>
+    
+    <!-- Aplicação de Margin 
+    mt-> Margin top
+    mb-> Margin Botton
+    ml-> Margin left
+    mr-> Margin right 
+    mx-> Margin no eixo x (horizontal, esquerda/direita)
+    my-> eixo y(vertical; top/bottom)
+    m-> Margin em todos os lados valor a definir(0até5)
+    -->
+    
+      <h1 class="bg-success">Item 1</h1>
+      <p class="bg-success my-5">Item 2</p>
+      <h1 class="bg-success mx-5">Item 3</h1> 
+      <h1 class="bg-success">Item 3</h1> 
+      <br>
+      <br>
+    <!-- Aplicação de Padding 
+    pt-> padding top
+    pb-> padding Botton
+    pl-> padding left
+    pr-> padding right 
+    px-> padding no eixo x (horizontal, esquerda/direita)
+    py-> eixo y(vertical; top/bottom)
+    p-> padding em todos os lados valor a definir(0até5)
+    -->
+      <h1 class="bg-success">Item 1</h1>
+      <p class="bg-success py-5">Item 2</p>
+      <h1 class="bg-success px-5">Item 3</h1> 
+      <h1 class="bg-success">Item 3</h1> 
+    
+    <br>
+    <!-- Listas sem estilo-->
+    <ul class="list-unstyled">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <br>
+
+    <ul class="list-inline">
+      <li class="list-inline-item">Item 1</li>
+      <li class="list-inline-item">Item 2</li>
+      <li class="list-inline-item">Item 3</li>
+    </ul>
+
+
+
+
+
+    <!-- Option JavaScript -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+  </body>
+</html>

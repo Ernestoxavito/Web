@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM_JS</title>
+    <script>
+        var janela
+        function abrirPopUp(){
+            janela= window.open("https://www.facebook.com", "nova_janela", "width=200, height=100")
+        }
+
+        function fecharPopUp(){
+            janela.close()
+        }
+    </script>
+</head>
+<body>
+
+    <h1>
+        <p> Bem-vindo a nossa instalação: O que deseja?</p>
+    </h1>
+
+    <button onclick="abrirPopUp()">Abrir Janela</button>
+    <button onclick="fecharPopUp()">Fechar Janela</button>
+    <button onclick="window.print()">Imprimir</button>
+</body>
+</html>

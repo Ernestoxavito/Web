@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="Stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <title>Barras de navegação</title>
+
+</head>
+<body>
+    
+    <h2>Navegação simples / abas</h2>
+
+    <ul class="nav nav-pills justify-content-end">
+        <li class="nav-item">
+            <a href="" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+            <a href="" class="nav-link active">Home</a>
+        </li>
+        <li class="nav-item">
+            <a href="" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+            <a href="" class="nav-link disabled">Home</a>
+        </li>
+    </ul>
+
+    <h2>Navegação simples </h2>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <!--Logo-->
+        <a class="navbar-brand">Chalé Hotel</a>
+        <!--Navegação-->
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link">Serviço</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link">Liga</a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <h2>Navegação com menu responsivo</h2>
+
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+        <!--Logo-->
+        <a class="navbar-brand">Chalé Hotel</a>
+
+        <!-- Menu Hamburguer-->
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#botao">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!--Navegação-->
+    <div class="collapse navbar-collapse" id="botao">    
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link">Serviço</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link">Liga</a>
+            </li>
+        </ul>
+    </div>
+    </nav>
+
+    <h2>Navegação com formulário</h2>
+
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+        <!--Logo-->
+        <a class="navbar-brand">Chalé Hotel</a>
+
+        <!-- Menu Hamburguer-->
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#botao">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!--Navegação-->
+    <div class="collapse navbar-collapse" id="botao">    
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link">Serviço</a>
+            </li>
+            <li class="nav-item"> 
+                <a href="" class="nav-link">Liga</a>
+            </li>
+        </ul>
+    </div>
+    <!--Formulário-->
+    <form class="form-inline">
+        <input type="text" class="form-control" placeholder="pesquisar...">
+        <button class="btn btn-outline-success">Ok</button>
+    </form>
+    </nav>
+
+    <h2>Navegação com menu dropdown</h2>
+
+    <nav class="navbar navbar-expand-xl navbar-dark bg-success">
+        <!--Logo-->
+        <a class="navbar-brand">Chalé Hotel</a>
+
+        <!-- Menu Hamburguer-->
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#botao">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!--Navegação-->
+    <div class="collapse navbar-collapse" id="botao">    
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" >Serviço</a>
+
+                <div dropdown-menu>
+                    <a href="" class="dropdown-item">Serviços1</a>
+                    <a href="" class="dropdown-item">Serviços2</a>
+                    <a href="" class="dropdown-item">Serviços3</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link">Liga</a>
+            </li>
+        </ul>
+    </div>
+    <!--Formulário-->
+    <form class="form-inline">
+        <input type="text" class="form-control" placeholder="pesquisar...">
+        <button class="btn btn-outline-success">Ok</button>
+    </form>
+    </nav>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementos_DOM</title>
+    <script>
+        function Caracter() {
+            
+            //selecionar o valor digitado
+            var caracter = document.getElementById("entrada").value
+            //limpar o campo de digitação
+            document.getElementById("entrada").value = ""
+
+            caracter.trim()
+
+            switch(caracter){
+                case "0":
+                case "1":
+                case "2":
+                case "3":
+                    //add. o caracter no campo referente a números
+                    document.getElementById("numeros").value += caracter
+                    break;
+                    default:
+                    //add. o caracter no campo referente a números
+                    document.getElementById("letras").value += caracter
+            }
+        }
+    </script>
+</head>
+<body>
+    
+    <input 
+    type="text" 
+    placeholder="Escreva um Caracter aqui" 
+    onkeyup="Caracter()" 
+    id="entrada"
+    >
+    <hr>
+    <span>Letras:</span>
+    <input type="text" disabled="disabled" id="letras" >
+
+    <span>Números</span>
+    <input type="text" disabled="disabled" id="numeros" >
+</body>
+</html>

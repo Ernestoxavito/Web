@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-widt h, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css" />
+    <script src="game.js"></script>
+    <title>MEU JOGO</title>
+</head>
+<body onresize="ajustaTamanhoPalcoJogo()">
+
+    <div class="painel">
+        <div class="vidas">
+            <img id="v1" src="imagens/coracao_cheio.png">
+            <img id="v2" src="imagens/coracao_cheio.png">
+            <img id="v3" src="imagens/coracao_cheio.png">
+        </div>
+
+        <div class="cronometro">
+            Tempo restante: <span id="cronometro"></span>
+        </div>
+    </div>
+
+   
+    <!--<img src="imagens/mosca.png" class="mosca1" />-->
+
+    <script>
+        
+        document.getElementById('cronometro').innerHTML = tempo
+        
+        var criaMosca = setInterval(function() {
+            posicaoRandomica()    
+        }, criaMoscaTempo)
+    </script>
+    
+</body>
+</html>

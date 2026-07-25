@@ -1,0 +1,305 @@
+/********************* Seletor universal 
+
+* {
+	border: 1px solid red;
+} */
+
+/***** Seletor de texto 
+h1 {
+	color: green;
+} 
+
+/******** Seletor de class 
+.verde {
+	color: green;
+}
+
+p.verde {
+	color: green;
+}
+/***** Seletor ID 
+#cabecalho {
+	border: 1px solid blue;
+}
+
+/****** Seletor de filho 
+li>a {
+	color: red;
+	text-decoration: none;
+}
+
+/******** Herança e especificidade 
+
+body {
+	color: red;
+	font-size: 20px; 
+}
+
+/** Seletor mais específico que o outro */
+
+/** {
+	color: red;
+}
+h2 {
+	color: blue;
+}
+
+h2.verde {
+	color: green;
+}
+
+/*h2#amarelo {
+	color: yellow;
+}*/
+
+/*h2#cinza {
+	color: gray;
+}*/
+
+/**** Barra de navegação vertical 
+
+ul {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+li {
+	padding: 10px 20px;
+	background: url(../imagens/seta.png) no-repeat left center;
+}*/
+
+/****
+ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+ul a {
+	width: 200px;
+	height: 40px;
+	display: block;
+	color: #000;
+	text-decoration: none;
+	text-indent: 40px;
+	line-height: 40px;
+	background: url(../imagens/menu.png);
+}
+
+a:hover {
+	background-position: right bottom;
+	color: #fff;
+}*/
+
+
+/**** Navegação Horizontal 
+
+ul {
+	
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 720px;
+	background: #159cb0 url(../imagens/fundo-horizontal.png) repeat-x;
+	float: left;
+}
+
+ul li {
+	
+	 float: left;
+
+}
+
+ul a{
+	display: block;
+	padding: 0 2em;
+	line-height: 4em;
+	text-decoration: none;
+	color: #fff;
+	background: url(../imagens/divisor.png) repeat-y;
+}
+
+ul .primeiro a {
+	background: none;	
+}
+
+ul a:hover {
+	color: #085662;
+	background: #44cade;
+}*/
+
+/***** dkdkd 
+body{
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	background: #f2f2f2;
+}
+
+#container {
+	width: 720;
+	margin: 0 auto;
+	background: #fff;
+}
+
+#marca {
+	height: 100px;
+	background: #9E9E9E;
+	text-align: center;
+	line-height: 100px;
+}
+
+#conteudo {
+	
+	width: 500px;
+	float: right;
+}
+
+#navegacao {
+	width: 180px;
+	float: left;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background: #d1d1d1;
+}
+
+#navegacao ul {
+	list-style: none;
+}
+
+#navegacao li a {
+	text-decoration: none;
+}
+
+#rodape {
+	clear: both;
+	background: #c4c4c4;
+	padding: 5px;
+}*/
+
+/*** Estilizando tabelas 
+
+body {
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+table {
+	width: 600px;
+	border-collapse: separate;
+}
+
+th, td {
+	
+	padding: 7px;
+}
+
+th {
+	text-transform: uppercase;
+	border-top: 1px solid #999;
+	border-bottom: 1px solid #111;
+	text-align: left;
+	font-size: 90%;
+	letter-spacing: 0.1em;
+
+}
+
+tr.alternado {
+	background-color: efefef;
+}
+
+.numero {
+	text-align: right;
+}
+
+th:hover {
+	background-color: #c3e6e5; 
+}
+td:hover {
+	background-color: blueviolet;
+}*/
+
+/**** Estilizando formulários 
+
+body {
+	font-family: "Trebuchet MS", Helvetico, sans-serif;
+}
+fieldset {
+	padding: 1em;
+	border: 1px solid #ccc;
+	background: #f8f8f8;
+}
+
+legend {
+	font-weight: bold;
+}
+
+label {
+	display: block;
+	cursor: pointer;  
+}*/
+
+/*** Formulário */
+/*** FM
+body {
+	font-family: "Trebuchet MS", Helveetica, sans-serif;
+	background: #643d87 url(../imagens/fundo.jpg) no-repeat top center;
+}
+
+#container {
+	width: 400px;
+	height: 500; 
+	background-color: rgba(255, 255, 255, 0.3);
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	margin: 0 auto;
+	margin-top: 120px;
+	text-align: center;
+}
+
+#container img {
+	width: 120px;
+	height: 120;
+	margin-top: -60px;
+	margin-bottom: 30px;
+}
+
+input {
+	height: 40px;
+	width: 80%;
+	font-size: 18px;
+	margin-bottom: 10px;
+	background-color: #fff;
+	padding-left: 40px;
+	border: none;
+	background-repeat: no-repeat;
+	background-position: 10px;
+
+}
+
+input.email {
+	background-image: url(../imagens/icone-usuario.png);
+}
+input.senha {
+	background-image: url(../imagens/icone-cadeado.png);
+}
+input.submit {
+	color: #fff;
+	background-color: #f79300;
+	border: 2px solid #db7d00 ;
+} */
+
+/*** Arredondamento */
+
+.caixa {
+	width: 400px;
+	background: #aaa url(../imagens/topo2.png) no-repeat left top;
+}
+
+.caixa h2 {
+	padding: 10px 20px 0 20px;
+}
+
+.caixa p {
+	padding: 0px 20px 20px 20px;
+	background: url(../imagens/baixo2.png) no-repeat bottom;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+
+    <script>
+
+        /***
+
+        var llista_frutas = Array()
+
+        llista_frutas[1] = "Banana"
+        llista_frutas[2] = "Maçã"
+        llista_frutas["x"] = "Morango"
+        llista_frutas[4] = "Uva"
+
+        console.log(llista_frutas["x"]) 
+        ***/
+
+        // Array multidimensional
+        /***
+        var lista_coisas = Array()
+
+        lista_coisas["frutas"] = Array("Banana", "Maçã", "Morango")
+        lista_coisas["pessoas"] = []
+
+        lista_coisas["pessoas"][1] = "Ernesto"
+        lista_coisas["pessoas"][2] = "Edson"
+        lista_coisas["pessoas"][3] = "Rodmey"
+         
+
+        document.write(lista_coisas["pessoas"][3] )
+        document.write("<br>")
+        document.write(lista_coisas["frutas"][2] )
+        **/
+
+        //Incluir e excluir dados no Array
+        /**
+        var llista_frutas = []
+        llista_frutas[0] = "Banana"
+        llista_frutas[1] = "Abacate"
+        // incluir elemento no final da lista
+        llista_frutas.push("Uva")
+        // incluir elemento no top da lista
+        llista_frutas.unshift("Morango")
+        // excluir elemento no top da lista
+        llista_frutas.shift()
+        // excluir elemento no final da lista
+        llista_frutas.pop()
+        **/
+
+        /// array_pesquisa
+        /**var lista_frutas = Array()
+
+        lista_frutas[0] = "Banana"
+        lista_frutas[1] = "Morango"
+        lista_frutas[2] = "Uva"
+        if (lista_frutas.indexOf("Morango") === -1 ) {
+            console.log("Elemento não existe")
+        } else {
+            console.log("Esta fruta existe e está na posição " + lista_frutas.indexOf("Morango"))
+        }
+        **/
+
+        // Ordenação de elementos
+        /**
+        var lista_frutas = Array()
+
+        lista_frutas[0] = "Mamão"
+        lista_frutas[1] = "Banana"
+        lista_frutas[2] = "Morango"
+        lista_frutas[3] = "Goiaba"
+
+        console.log(lista_frutas.sort())
+        **/
+        var lista_numeros = Array()
+
+        lista_numeros[0] = 13
+        lista_numeros[1] = 50
+        lista_numeros[2] = 1
+        lista_numeros[3] = 30
+
+        console.log(lista_numeros.sort(ordenaNumeros))
+
+        function ordenaNumeros(a, b) {
+            return a - b
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
